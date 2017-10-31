@@ -10,6 +10,8 @@ export default ({ children, title = 'Dactylonomy' }) => (
     </Head>
     { children }
     <style jsx global>{`
+      @import './styles/typography.css';
+
       html, body {
         height: 100%;
         width: 100%;
