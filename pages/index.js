@@ -5,15 +5,13 @@ import Hands from 'components/hands';
 export default () => (
   <Layout>
     <Banners />
-    <div className="container">
-      <section className="introduction">
-        <p>Hey guys (・_・)ノ real quick, count to 10 on your fingers! (I’ll wait.) Which finger did you start with? Have you ever even thought about that?</p>
-        <p>Well, I have</p>
-        <p>I’m asking people around the world to tell me how they count on their fingers (aka dactylonomy). Because everyone does it differently. And until now, there’s no real information on it.</p>
-        <p>So, lend me a hand by selecting from the below gifs the way you count. If you don’t see the hand that represents how you count, please select the mystery hand & give me the details of how you do it! I’ll really appreciate it, thank you!!</p>
-      </section>
-      <Hands />
-    </div>
+    <section className="introduction">
+      <p>Hey guys (・_・)ノ real quick, count to 10 on your fingers! (I’ll wait.) Which finger did you start with? Have you ever even thought about that?</p>
+      <p>Well, I have</p>
+      <p>I’m asking people around the world to tell me how they count on their fingers (aka dactylonomy). Because everyone does it differently. And until now, there’s no real information on it.</p>
+      <p>So, lend me a hand by selecting from the below gifs the way you count. If you don’t see the hand that represents how you count, please select the mystery hand & give me the details of how you do it! I’ll really appreciate it, thank you!!</p>
+    </section>
+    <Hands />
     <style jsx>{`
       @import './styles/variables.css';
 

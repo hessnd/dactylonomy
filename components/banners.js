@@ -9,7 +9,7 @@ export default () => (
     <style jsx>{`
       @keyframes leftToRight {
         0% {
-          left: -329px;
+          left: -486px;
         }
         100% {
           left: 100%;
@@ -21,13 +21,13 @@ export default () => (
           left: 100%;
         }
         100% {
-          left: -329px;
+          left: -486px;
         }
       }
 
       @keyframes topToBottom {
         0% {
-          top: calc(100% + 329px);
+          top: calc(100% + 486px);
         }
         100% {
           top: 0;
@@ -39,7 +39,7 @@ export default () => (
           top: 0;
         }
         100% {
-          top: calc(100% + 329px);
+          top: calc(100% + 486px);
         }
       }
 
@@ -47,6 +47,7 @@ export default () => (
         position: fixed;
         height: 100vh;
         width: 100vw;
+        // z-index: -1;
       }
 
       .banner {
@@ -54,9 +55,10 @@ export default () => (
         font-size: 2.4rem;
         font-weight: 500;
         text-align: justify;
+        text-transform: uppercase;
         color: black;
         position: absolute;
-        width: 329px;
+        width: 486px;
       }
 
       .left-to-right {
