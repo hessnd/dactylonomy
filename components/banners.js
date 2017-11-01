@@ -1,9 +1,11 @@
 export default () => (
   <div>
-    <span className="banner left-to-right">Dactylonomy Around The World</span>
-    <span className="banner top-to-bottom">Dactylonomy Around The World</span>
-    <span className="banner bottom-to-top">Dactylonomy Around The World</span>
-    <span className="banner right-to-left">Dactylonomy Around The World</span>
+    <div className="banner-wrapper">
+      <span className="banner left-to-right">Dactylonomy Around The World</span>
+      <span className="banner top-to-bottom">Dactylonomy Around The World</span>
+      <span className="banner bottom-to-top">Dactylonomy Around The World</span>
+      <span className="banner right-to-left">Dactylonomy Around The World</span>
+    </div>
     <style jsx>{`
       @keyframes leftToRight {
         0% {
@@ -39,6 +41,12 @@ export default () => (
         100% {
           top: calc(100% + 329px);
         }
+      }
+
+      .banner-wrapper {
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
       }
 
       .banner {

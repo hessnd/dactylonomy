@@ -1,6 +1,6 @@
 import Layout from 'components/layout';
 import Banners from 'components/banners';
-import bangladeshBW from 'static/hands/bangladesh/BANGLADESH.gif';
+import Hands from 'components/hands';
 
 export default () => (
   <Layout>
@@ -12,9 +12,7 @@ export default () => (
         <p>I’m asking people around the world to tell me how they count on their fingers (aka dactylonomy). Because everyone does it differently. And until now, there’s no real information on it.</p>
         <p>So, lend me a hand by selecting from the below gifs the way you count. If you don’t see the hand that represents how you count, please select the mystery hand & give me the details of how you do it! I’ll really appreciate it, thank you!!</p>
       </section>
-      <section className="hands">
-        <img src={bangladeshBW} />
-      </section>
+      <Hands />
     </div>
     <style jsx>{`
       @import './styles/variables.css';
@@ -27,12 +25,6 @@ export default () => (
         text-align: center;
         font-size: 1.8rem;
         line-height: 1.11;
-      }
-
-      .hands {
-        display: flex;
-        justify-content: center;
-        align-items: center;
       }
     `}</style>
   </Layout>
