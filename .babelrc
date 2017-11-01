@@ -18,6 +18,16 @@
         "baseDir": "static",
         "baseUri": "/"
       }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "components": "./components",
+          "static": "./static"
+        }
+      }
     ]
   ]
 }

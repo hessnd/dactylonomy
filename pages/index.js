@@ -1,6 +1,6 @@
-import Layout from '../components/layout';
-import Banners from '../components/banners';
-import bangladeshBW from '../static/hands/bangladesh/BANGLADESH.gif';
+import Layout from 'components/layout';
+import Banners from 'components/banners';
+import bangladeshBW from 'static/hands/bangladesh/BANGLADESH.gif';
 
 export default () => (
   <Layout>
