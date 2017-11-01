@@ -3,7 +3,8 @@ import centralEurope from 'static/hands/central-europe/C_Europe.gif';
 import china from 'static/hands/china/CHINA.gif';
 import japan from 'static/hands/japan/JAPAN.gif';
 import northAmerica from 'static/hands/north-america/NA.gif';
-import taiwan from 'static/hands/taiwan/TAIWAN.gif';  
+import taiwan from 'static/hands/taiwan/TAIWAN.gif';
+import other from 'static/hands/other/Other.gif'; 
 
 export default () => (
   <div>
@@ -14,6 +15,7 @@ export default () => (
       <img src={japan} />
       <img src={northAmerica} />
       <img src={taiwan} />
+      <img src={other} />
     </section>
     <style jsx>{`
       .hands {

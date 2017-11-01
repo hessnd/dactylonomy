@@ -17,12 +17,21 @@ export default () => (
 
       .introduction {
         font-family: 'ACaslonPro';
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
         margin: 0 2.8rem;
         padding-top: 6.5rem;
         color: black;
         text-align: center;
         font-size: 1.8rem;
         line-height: 1.11;
+        max-width: 109.7rem;
+      }
+
+      .introduction p {
+        margin: 1rem 0;
       }
     `}</style>
   </Layout>
