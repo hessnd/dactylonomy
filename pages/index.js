@@ -1,8 +1,10 @@
 import Layout from '../components/layout';
+import Banners from '../components/banners';
 import bangladeshBW from '../static/hands/bangladesh/BANGLADESH.gif';
 
 export default () => (
   <Layout>
+    <Banners />
     <div className="container">
       <section className="introduction">
         <p>Hey guys (・_・)ノ real quick, count to 10 on your fingers! (I’ll wait.) Which finger did you start with? Have you ever even thought about that?</p>
@@ -18,6 +20,7 @@ export default () => (
       @import './styles/variables.css';
 
       .introduction {
+        font-family: 'ACaslonPro';
         margin: 0 2.8rem;
         padding-top: 6.5rem;
         color: black;
