@@ -16,26 +16,26 @@ import other from 'static/hands/other/Other.gif';
 export default class Hands extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {bangladeshHover: false}
-    this.handleMouseOver = this.handleMouseOver.bind(this);
-    // this.handleMouseOut = this.handleMouseOut.bind(this);
+    this.state = {
+      bangladeshHover: false,
+      isHovered: false,
+    };
+    this.handleHover = this.handleHover.bind(this);
   }
 
-  handleMouseOver() {
+  handleHover() {
     this.setState({
-      bangladeshHover: true
+      isHovered: !this.state.isHovered,
     });
   }
 
   render () {
+   const handActive = this.state.isHovered ? "active" : "";
     return (
       <div className="hands">
-        <figure className="hand-wrapper">
-          {this.state.bangladeshHover ? (
-            <img src={bangladesh} className="color" alt="bangladesh"/>
-          ): (
-            <img src={bangladeshBW} className="black-white" alt="bangladesh"/>
-          )}
+        <figure className="hand-wrapper" onMouseOver={this.handleHover} onMouseLeave={this.handleHover}>
+          <img src={bangladesh} className={`color ${handActive}`} alt="bangladesh" />
+          <img src={bangladeshBW} className="black-white" alt="bangladesh" />
         </figure>
         <figure className="hand-wrapper">
           <img src={centralEuropeBW} alt="central europe"/>
@@ -61,6 +61,14 @@ export default class Hands extends React.Component {
             justify-content: center;
             align-items: center;
             flex-direction: column;
+          }
+
+          .color {
+            display: none;
+
+            &.active {
+              display: block;
+            }
           }
 
           .hand-wrapper {
