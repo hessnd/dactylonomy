@@ -116,6 +116,12 @@ export default class Hands extends React.Component {
           .hand-wrapper {
             cursor: pointer;
             position: relative;
+            width: 100%;
+            max-width: 760px;
+          }
+
+          .color, .black-white {
+            width: 100%;
           }
 
           .color {
