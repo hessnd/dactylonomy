@@ -1,3 +1,5 @@
+import Form from 'components/form';
+
 import bangladeshBW from 'static/hands/bangladesh/BANGLADESH_BW.gif';
 import bangladesh from 'static/hands/bangladesh/BANGLADESH.gif';
 import centralEuropeBW from 'static/hands/central-europe/C_EUROPE_BW.gif';
@@ -76,11 +78,14 @@ export default class Hands extends React.Component {
    const taiwanActive = this.state.taiwanHover ? "active" : "";
    const otherActive = this.state.otherHover ? "active" : "";
     return (
-      <div className="hands">
-        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'bangladesh')} onMouseLeave={this.handleHover.bind(this, 'bangladesh')}>
-          <img src={bangladesh} className={`color ${bangladeshActive}`} alt="bangladesh" />
-          <img src={bangladeshBW} className="black-white" alt="bangladesh" />
-        </figure>
+      <section className="hands">
+        <div className="region-wrapper">
+          <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'bangladesh')} onMouseLeave={this.handleHover.bind(this, 'bangladesh')}>
+            <img src={bangladesh} className={`color ${bangladeshActive}`} alt="bangladesh" />
+            <img src={bangladeshBW} className="black-white" alt="bangladesh" />
+          </figure>
+          <Form />
+        </div>
         <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'cEurope')} onMouseLeave={this.handleHover.bind(this, 'cEurope')}>
           <img src={centralEurope} className={`color ${cEuropeActive}`} alt="central europe" />
           <img src={centralEuropeBW} className="black-white" alt="central europe"/>
@@ -111,13 +116,21 @@ export default class Hands extends React.Component {
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            margin: 0 2.8rem;
+          }
+
+          .region-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
 
           .hand-wrapper {
             cursor: pointer;
             position: relative;
             width: 100%;
-            max-width: 760px;
+            max-width: 680px;
           }
 
           .color, .black-white {
@@ -135,7 +148,7 @@ export default class Hands extends React.Component {
             }
           }
         `}</style>
-      </div>
+      </section>
     );
   }
 }
