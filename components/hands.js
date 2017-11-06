@@ -18,42 +18,92 @@ export default class Hands extends React.Component {
     super(props);
     this.state = {
       bangladeshHover: false,
-      isHovered: false,
+      cEuropeHover: false,
+      chinaHover: false,
+      japanHover: false,
+      nAmericaHover: false,
+      taiwanHover: false,
+      otherHover: false,
     };
     this.handleHover = this.handleHover.bind(this);
   }
 
-  handleHover() {
-    this.setState({
-      isHovered: !this.state.isHovered,
-    });
+  handleHover(country) {
+    switch (country) {
+      case 'bangladesh':
+        this.setState({
+          bangladeshHover: !this.state.bangladeshHover,
+        });
+        break;
+      case 'cEurope':
+        this.setState({
+          cEuropeHover: !this.state.cEuropeHover,
+        });
+        break;
+      case 'china':
+        this.setState({
+          chinaHover: !this.state.chinaHover,
+        });
+        break;
+      case 'japan':
+        this.setState({
+          japanHover: !this.state.japanHover,
+        });
+        break;
+      case 'nAmerica':
+        this.setState({
+          nAmericaHover: !this.state.nAmericaHover,
+        });
+        break;
+      case 'taiwan':
+        this.setState({
+          taiwanHover: !this.state.taiwanHover,
+        });
+        break;
+      case 'other':
+        this.setState({
+          otherHover: !this.state.otherHover,
+        });
+    }
   }
 
   render () {
-   const handActive = this.state.isHovered ? "active" : "";
+   const bangladeshActive = this.state.bangladeshHover ? "active" : "";
+   const cEuropeActive = this.state.cEuropeHover ? "active" : "";
+   const chinaActive = this.state.chinaHover ? "active" : "";
+   const japanActive = this.state.japanHover ? "active" : "";
+   const nAmericaActive = this.state.nAmericaHover ? "active" : "";
+   const taiwanActive = this.state.taiwanHover ? "active" : "";
+   const otherActive = this.state.otherHover ? "active" : "";
     return (
       <div className="hands">
-        <figure className="hand-wrapper" onMouseOver={this.handleHover} onMouseLeave={this.handleHover}>
-          <img src={bangladesh} className={`color ${handActive}`} alt="bangladesh" />
+        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'bangladesh')} onMouseLeave={this.handleHover.bind(this, 'bangladesh')}>
+          <img src={bangladesh} className={`color ${bangladeshActive}`} alt="bangladesh" />
           <img src={bangladeshBW} className="black-white" alt="bangladesh" />
         </figure>
-        <figure className="hand-wrapper">
-          <img src={centralEuropeBW} alt="central europe"/>
+        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'cEurope')} onMouseLeave={this.handleHover.bind(this, 'cEurope')}>
+          <img src={centralEurope} className={`color ${cEuropeActive}`} alt="central europe" />
+          <img src={centralEuropeBW} className="black-white" alt="central europe"/>
         </figure>
-        <figure className="hand-wrapper">
-          <img src={chinaBW} alt="china"/>
+        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'china')} onMouseLeave={this.handleHover.bind(this, 'china')}>
+          <img src={china} className={`color ${chinaActive}`} alt="china" />
+          <img src={chinaBW} className="black-white" alt="china"/>
         </figure>
-        <figure className="hand-wrapper">
-          <img src={japanBW} alt="japan"/>
+        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'japan')} onMouseLeave={this.handleHover.bind(this, 'japan')}>
+          <img src={japan} className={`color ${japanActive}`} alt="japan" />
+          <img src={japanBW} className="black-white" alt="japan"/>
         </figure>
-        <figure className="hand-wrapper">
-          <img src={northAmericaBW} alt="north america"/>
+        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'nAmerica')} onMouseLeave={this.handleHover.bind(this, 'nAmerica')}>
+          <img src={northAmerica} className={`color ${nAmericaActive}`} alt="north america" />
+          <img src={northAmericaBW} className="black-white" alt="north america"/>
         </figure>
-        <figure className="hand-wrapper">
-          <img src={taiwanBW} alt="taiwan"/>
+        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'taiwan')} onMouseLeave={this.handleHover.bind(this, 'taiwan')}>
+          <img src={taiwan} className={`color ${taiwanActive}`} alt="taiwan" />
+          <img src={taiwanBW} className="black-white" alt="taiwan"/>
         </figure>
-        <figure className="hand-wrapper">
-          <img src={otherBW} alt="other"/>
+        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'other')} onMouseLeave={this.handleHover.bind(this, 'other')}>
+          <img src={other} className={`color ${otherActive}`} alt="other" />
+          <img src={otherBW} className="black-white" alt="other"/>
         </figure>
         <style jsx>{`
           .hands {
@@ -63,16 +113,20 @@ export default class Hands extends React.Component {
             flex-direction: column;
           }
 
+          .hand-wrapper {
+            cursor: pointer;
+            position: relative;
+          }
+
           .color {
             display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
 
             &.active {
               display: block;
             }
-          }
-
-          .hand-wrapper {
-            cursor: pointer;
           }
         `}</style>
       </div>

@@ -1,5 +1,5 @@
 export default () => (
-  <div>
+  <div className="banners">
     <span className="banner left-to-right">Dactylonomy Around The World</span>
     <span className="banner top-to-bottom">Dactylonomy Around The World</span>
     <span className="banner bottom-to-top">Dactylonomy Around The World</span>
@@ -50,6 +50,7 @@ export default () => (
         color: black;
         position: fixed;
         width: 486px;
+        z-index: 1;
       }
 
       .left-to-right {

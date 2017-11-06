@@ -21,8 +21,8 @@ export default () => (
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        margin: 0 2.8rem;
-        padding-top: 6.5rem;
+        margin: 0 auto;
+        padding: 6.5rem 2.8rem 0 2.8rem;
         color: black;
         text-align: center;
         font-size: 1.8rem;

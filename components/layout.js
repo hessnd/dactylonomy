@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 export default ({ children }) => (
-  <div>
+  <div className="layout">
     <Head>
       <meta charSet='utf-8' />
       <meta httpEquiv='x-ua-compatible' content='id=edge' />
@@ -26,6 +26,10 @@ export default ({ children }) => (
         background: white;
         margin: 0;
         -webkit-font-smoothing: antialiased;
+      }
+
+      .layout {
+        overflow-x: hidden;
       }
     `}</style>
   </div>
