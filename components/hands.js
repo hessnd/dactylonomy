@@ -64,8 +64,8 @@ export default class Hands extends React.Component {
         this.setState({
           otherHover: !this.state.otherHover,
         });
-    }
-  }
+    };
+  };
 
   render () {
    const bangladeshActive = this.state.bangladeshHover ? "active" : "";
