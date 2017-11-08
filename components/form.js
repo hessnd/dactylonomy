@@ -2,13 +2,14 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: false,
+      active: props.active,
     };
   };
 
   render() {
+    const isActive = this.props.active ? 'active' : '';
     return (
-      <form className="form">
+      <form className={`form ${isActive}`}>
         <label className="label" htmlFor="origin">Where are you from?</label>
         <input className="input" type="text" name="origin" id="origin"/>
         <label className="label" htmlFor="email">What is your email?</label>
@@ -20,9 +21,13 @@ export default class Form extends React.Component {
         @import './styles/variables.css';
 
         .form {
-          display: flex;
+          display: none;
           flex-direction: column;
           width: 100%;
+        }
+
+        .form.active {
+          display: flex;
         }
 
         .label {
@@ -42,7 +47,7 @@ export default class Form extends React.Component {
           color: black;
           border: none;
           outline: 0;
-          border-bottom: solid .3rem var(--lavender);
+          border-bottom: solid .3rem var(--bangladesh);
         }
 
         .submit {

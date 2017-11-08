@@ -1,5 +1,11 @@
 --lavender: #eda3e6;
---vermillion: #f21c1c;
+--other: #f21c1c;
+--continentalEurope: #do9afc;
+--northAmerica: #fc92e7;
+--bangladesh: #ffc74f;
+--taiwan: #5ae079;
+--japan: #6adf4c;
+--china: #475aeb;
 
 @custom-media --small-only (width < 640px);
 @custom-media --small-only-height (height < 640px);

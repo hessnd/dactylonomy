@@ -75,7 +75,7 @@ export default class Hands extends React.Component {
     switch (country) {
       case 'bangladesh':
         this.setState({
-          bangladeshForm: true,
+          bangladeshForm: !this.state.bangladeshForm,
         });
     };
   };
@@ -95,7 +95,7 @@ export default class Hands extends React.Component {
             <img src={bangladesh} className={`color ${bangladeshActive}`} alt="bangladesh" />
             <img src={bangladeshBW} className="black-white" alt="bangladesh" />
           </figure>
-          <Form />
+          <Form active={this.state.bangladeshForm} />
         </div>
         <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'cEurope')} onMouseLeave={this.handleHover.bind(this, 'cEurope')}>
           <img src={centralEurope} className={`color ${cEuropeActive}`} alt="central europe" />
