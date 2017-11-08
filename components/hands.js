@@ -180,7 +180,8 @@ export default class Hands extends React.Component {
             width: 100%;
 
             &:hover > .color {
-              display: block;
+              opacity: 1;
+              z-index: 2;
             }
           }
 
@@ -188,14 +189,20 @@ export default class Hands extends React.Component {
             width: 100%;
           }
 
+          .black-white {
+            z-index: 1;
+          }
+
           .color {
-            display: none;
+            opacity: 0;
+            z-index: -1;
             position: absolute;
             top: 0;
             left: 0;
 
             &.active {
-              display: block;
+              opacity: 1;
+              z-index: 2
             }
           }
         `}</style>
