@@ -1,11 +1,4 @@
 export default class Form extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: props.active,
-    };
-  };
-
   render() {
     const isActive = this.props.active ? 'active' : '';
     return (

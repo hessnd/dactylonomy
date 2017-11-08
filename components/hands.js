@@ -22,6 +22,7 @@ export default class Hands extends React.Component {
       bangladeshHover: false,
       bangladeshForm: false,
       cEuropeHover: false,
+      cEuropeForm: false,
       chinaHover: false,
       japanHover: false,
       nAmericaHover: false,
@@ -77,6 +78,10 @@ export default class Hands extends React.Component {
         this.setState({
           bangladeshForm: !this.state.bangladeshForm,
         });
+      case 'cEurope':
+        this.setState({
+          cEuropeForm: !this.state.cEuropeForm,
+        });
     };
   };
 
@@ -97,9 +102,10 @@ export default class Hands extends React.Component {
           </figure>
           <Form active={this.state.bangladeshForm} />
         </div>
-        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'cEurope')} onMouseLeave={this.handleHover.bind(this, 'cEurope')}>
+        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'cEurope')} onMouseLeave={this.handleHover.bind(this, 'cEurope')} onClick={this.handleClick.bind(this, 'cEurope')}>
           <img src={centralEurope} className={`color ${cEuropeActive}`} alt="central europe" />
           <img src={centralEuropeBW} className="black-white" alt="central europe"/>
+          <Form active={this.state.cEuropeForm} />
         </figure>
         <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'china')} onMouseLeave={this.handleHover.bind(this, 'china')}>
           <img src={china} className={`color ${chinaActive}`} alt="china" />
