@@ -20,6 +20,7 @@ export default class Hands extends React.Component {
     super(props);
     this.state = {
       bangladeshHover: false,
+      bangladeshForm: false,
       cEuropeHover: false,
       chinaHover: false,
       japanHover: false,
@@ -28,7 +29,8 @@ export default class Hands extends React.Component {
       otherHover: false,
     };
     this.handleHover = this.handleHover.bind(this);
-  }
+    this.handleClick = this.handleClick.bind(this);
+  };
 
   handleHover(country) {
     switch (country) {
@@ -69,6 +71,15 @@ export default class Hands extends React.Component {
     };
   };
 
+  handleClick(country) {
+    switch (country) {
+      case 'bangladesh':
+        this.setState({
+          bangladeshForm: true,
+        });
+    };
+  };
+
   render () {
    const bangladeshActive = this.state.bangladeshHover ? "active" : "";
    const cEuropeActive = this.state.cEuropeHover ? "active" : "";
@@ -80,7 +91,7 @@ export default class Hands extends React.Component {
     return (
       <section className="hands">
         <div className="region-wrapper">
-          <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'bangladesh')} onMouseLeave={this.handleHover.bind(this, 'bangladesh')}>
+          <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'bangladesh')} onMouseLeave={this.handleHover.bind(this, 'bangladesh')} onClick={this.handleClick.bind(this, 'bangladesh')}>
             <img src={bangladesh} className={`color ${bangladeshActive}`} alt="bangladesh" />
             <img src={bangladeshBW} className="black-white" alt="bangladesh" />
           </figure>
