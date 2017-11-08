@@ -99,6 +99,7 @@ export default class Hands extends React.Component {
    const nAmericaActive = this.state.nAmericaForm ? "active" : "";
    const taiwanActive = this.state.taiwanForm ? "active" : "";
    const otherActive = this.state.otherForm ? "active" : "";
+
     return (
       <section className="hands">
         <div className="region-wrapper">

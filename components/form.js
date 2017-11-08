@@ -2,6 +2,7 @@ export default class Form extends React.Component {
   render() {
     const isActive = this.props.active ? 'active' : '';
     const currentColor = this.props.color;
+
     return (
       <form className={`form ${isActive}`}>
         <label className="label" htmlFor="origin">Where are you from?</label>
