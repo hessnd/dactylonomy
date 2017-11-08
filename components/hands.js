@@ -35,9 +35,23 @@ export default class Hands extends React.Component {
       otherColor: '#f21c1c',
     };
     this.handleClick = this.handleClick.bind(this);
+    this.closeForms = this.closeForms.bind(this);
+  };
+
+  closeForms() {
+    this.setState({
+      bangladeshForm: false,
+      cEuropeForm: false,
+      chinaForm: false,
+      japanForm: false,
+      nAmericaForm: false,
+      taiwanForm: false,
+      otherForm: false,
+    });
   };
 
   handleClick(country) {
+    this.closeForms();
     switch (country) {
       case 'bangladesh':
         this.setState({
