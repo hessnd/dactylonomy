@@ -137,6 +137,8 @@ export default class Hands extends React.Component {
           <Form active={this.state.otherForm} color={this.state.otherColor} />
         </div>
         <style jsx>{`
+          @import './styles/variables.css';
+
           .hands {
             display: flex;
             justify-content: center;
@@ -151,6 +153,10 @@ export default class Hands extends React.Component {
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            @media (--large-up) {
+              flex-direction: row;
+            }
           }
 
           .hand-wrapper {

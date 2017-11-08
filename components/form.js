@@ -12,8 +12,6 @@ export default class Form extends React.Component {
         <input className="input" type="text" name="comments" id="comments"/>
         <input className="submit" type="submit" value="Submit"/>
       <style jsx>{`
-        @import './styles/variables.css';
-
         .form {
           display: none;
           flex-direction: column;
