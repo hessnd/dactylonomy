@@ -169,7 +169,7 @@ export default class Hands extends React.Component {
           </figure>
           <Form active={this.state.taiwanForm} />
         </div>
-        <div className="regionn-wrapper">
+        <div className="region-wrapper">
           <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'other')} onMouseLeave={this.handleHover.bind(this, 'other')} onClick={this.handleClick.bind(this, 'other')}>
             <img src={other} className={`color ${otherActive}`} alt="other" />
             <img src={otherBW} className="black-white" alt="other"/>
