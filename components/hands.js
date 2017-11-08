@@ -78,10 +78,12 @@ export default class Hands extends React.Component {
         this.setState({
           bangladeshForm: !this.state.bangladeshForm,
         });
+        break;
       case 'cEurope':
         this.setState({
           cEuropeForm: !this.state.cEuropeForm,
         });
+        break;
     };
   };
 
