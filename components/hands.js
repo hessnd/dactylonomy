@@ -24,10 +24,15 @@ export default class Hands extends React.Component {
       cEuropeHover: false,
       cEuropeForm: false,
       chinaHover: false,
+      chinaForm: false,
       japanHover: false,
+      japanForm: false,
       nAmericaHover: false,
+      nAmericaForm: false,
       taiwanHover: false,
+      taiwanForm: false,
       otherHover: false,
+      otherForm: false,
     };
     this.handleHover = this.handleHover.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -84,6 +89,31 @@ export default class Hands extends React.Component {
           cEuropeForm: !this.state.cEuropeForm,
         });
         break;
+      case 'china':
+        this.setState({
+          chinaForm: !this.state.chinaForm,
+        });
+        break;
+      case 'japan':
+        this.setState({
+          japanForm: !this.state.japanForm,
+        });
+        break;
+      case 'nAmerica':
+        this.setState({
+          nAmericaForm: !this.state.nAmericaForm,
+        });
+        break;
+      case 'taiwan':
+        this.setState({
+          taiwanForm: !this.state.taiwanForm,
+        });
+        break;
+      case 'other':
+        this.setState({
+          otherForm: !this.state.otherForm,
+        });
+        break;
     };
   };
 
@@ -104,31 +134,48 @@ export default class Hands extends React.Component {
           </figure>
           <Form active={this.state.bangladeshForm} />
         </div>
-        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'cEurope')} onMouseLeave={this.handleHover.bind(this, 'cEurope')} onClick={this.handleClick.bind(this, 'cEurope')}>
-          <img src={centralEurope} className={`color ${cEuropeActive}`} alt="central europe" />
-          <img src={centralEuropeBW} className="black-white" alt="central europe"/>
+        <div className="region-wrapper">
+          <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'cEurope')} onMouseLeave={this.handleHover.bind(this, 'cEurope')} onClick={this.handleClick.bind(this, 'cEurope')}>
+            <img src={centralEurope} className={`color ${cEuropeActive}`} alt="central europe" />
+            <img src={centralEuropeBW} className="black-white" alt="central europe"/>
+          </figure>
           <Form active={this.state.cEuropeForm} />
-        </figure>
-        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'china')} onMouseLeave={this.handleHover.bind(this, 'china')}>
-          <img src={china} className={`color ${chinaActive}`} alt="china" />
-          <img src={chinaBW} className="black-white" alt="china"/>
-        </figure>
-        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'japan')} onMouseLeave={this.handleHover.bind(this, 'japan')}>
-          <img src={japan} className={`color ${japanActive}`} alt="japan" />
-          <img src={japanBW} className="black-white" alt="japan"/>
-        </figure>
-        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'nAmerica')} onMouseLeave={this.handleHover.bind(this, 'nAmerica')}>
-          <img src={northAmerica} className={`color ${nAmericaActive}`} alt="north america" />
-          <img src={northAmericaBW} className="black-white" alt="north america"/>
-        </figure>
-        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'taiwan')} onMouseLeave={this.handleHover.bind(this, 'taiwan')}>
-          <img src={taiwan} className={`color ${taiwanActive}`} alt="taiwan" />
-          <img src={taiwanBW} className="black-white" alt="taiwan"/>
-        </figure>
-        <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'other')} onMouseLeave={this.handleHover.bind(this, 'other')}>
-          <img src={other} className={`color ${otherActive}`} alt="other" />
-          <img src={otherBW} className="black-white" alt="other"/>
-        </figure>
+        </div>
+        <div className="region-wrapper">
+          <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'china')} onMouseLeave={this.handleHover.bind(this, 'china')} onClick={this.handleClick.bind(this, 'china')}>
+            <img src={china} className={`color ${chinaActive}`} alt="china" />
+            <img src={chinaBW} className="black-white" alt="china"/>
+          </figure>
+          <Form active={this.state.chinaForm} />
+        </div>
+        <div className="region-wrapper">
+          <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'japan')} onMouseLeave={this.handleHover.bind(this, 'japan')} onClick={this.handleClick.bind(this, 'japan')}>
+            <img src={japan} className={`color ${japanActive}`} alt="japan" />
+            <img src={japanBW} className="black-white" alt="japan"/>
+          </figure>
+          <Form active={this.state.japanForm} />
+        </div>
+        <div className="region-wrapper">
+          <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'nAmerica')} onMouseLeave={this.handleHover.bind(this, 'nAmerica')} onClick={this.handleClick.bind(this, 'nAmerica')}>
+            <img src={northAmerica} className={`color ${nAmericaActive}`} alt="north america" />
+            <img src={northAmericaBW} className="black-white" alt="north america"/>
+          </figure>
+          <Form active={this.state.nAmericaForm} />
+        </div>
+        <div className="region-wrapper">
+          <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'taiwan')} onMouseLeave={this.handleHover.bind(this, 'taiwan')} onClick={this.handleClick.bind(this, 'taiwan')}>
+            <img src={taiwan} className={`color ${taiwanActive}`} alt="taiwan" />
+            <img src={taiwanBW} className="black-white" alt="taiwan"/>
+          </figure>
+          <Form active={this.state.taiwanForm} />
+        </div>
+        <div className="regionn-wrapper">
+          <figure className="hand-wrapper" onMouseEnter={this.handleHover.bind(this, 'other')} onMouseLeave={this.handleHover.bind(this, 'other')} onClick={this.handleClick.bind(this, 'other')}>
+            <img src={other} className={`color ${otherActive}`} alt="other" />
+            <img src={otherBW} className="black-white" alt="other"/>
+          </figure>
+          <Form active={this.state.otherForm} />
+        </div>
         <style jsx>{`
           .hands {
             display: flex;
@@ -140,6 +187,7 @@ export default class Hands extends React.Component {
 
           .region-wrapper {
             width: 100%;
+            max-width: 680px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -149,7 +197,6 @@ export default class Hands extends React.Component {
             cursor: pointer;
             position: relative;
             width: 100%;
-            max-width: 680px;
           }
 
           .color, .black-white {
