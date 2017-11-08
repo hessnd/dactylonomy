@@ -1,10 +1,10 @@
 --lavender: #eda3e6;
 --other: #f21c1c;
---continentalEurope: #do9afc;
+--continentalEurope: #d09afc;
 --northAmerica: #fc92e7;
 --bangladesh: #ffc74f;
 --taiwan: #5ae079;
---japan: #6adf4c;
+--japan: #6ad4fc;
 --china: #475aeb;
 
 @custom-media --small-only (width < 640px);

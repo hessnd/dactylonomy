@@ -1,6 +1,7 @@
 export default class Form extends React.Component {
   render() {
     const isActive = this.props.active ? 'active' : '';
+    const currentColor = this.props.color;
     return (
       <form className={`form ${isActive}`}>
         <label className="label" htmlFor="origin">Where are you from?</label>
@@ -17,10 +18,10 @@ export default class Form extends React.Component {
           display: none;
           flex-direction: column;
           width: 100%;
-        }
 
-        .form.active {
-          display: flex;
+          &.active {
+            display: flex;
+          }
         }
 
         .label {
@@ -40,7 +41,7 @@ export default class Form extends React.Component {
           color: black;
           border: none;
           outline: 0;
-          border-bottom: solid .3rem var(--bangladesh);
+          border-bottom: solid .3rem ${currentColor};
         }
 
         .submit {
