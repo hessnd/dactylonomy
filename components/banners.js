@@ -50,7 +50,7 @@ export default () => (
         color: black;
         position: fixed;
         width: 486px;
-        z-index: 1;
+        z-index: 10;
       }
 
       .left-to-right {
