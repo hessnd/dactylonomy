@@ -159,7 +159,9 @@ export default class Hands extends React.Component {
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            margin: 0 2.8rem;
+            margin: 0 auto;
+            padding: 0 2.8rem;
+            max-width: 1098px;
           }
 
           .region-wrapper {
@@ -168,9 +170,11 @@ export default class Hands extends React.Component {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
 
             @media (--large-up) {
               flex-direction: row;
+              max-width: 1098px;
             }
           }
 
@@ -178,6 +182,8 @@ export default class Hands extends React.Component {
             cursor: pointer;
             position: relative;
             width: 100%;
+            margin: 0;
+            max-width: 549px;
 
             &:hover > .color {
               opacity: 1;

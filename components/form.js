@@ -17,6 +17,7 @@ export default class Form extends React.Component {
           display: none;
           flex-direction: column;
           width: 100%;
+          max-width: 549px;
 
           &.active {
             display: flex;
