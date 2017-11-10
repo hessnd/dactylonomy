@@ -110,42 +110,42 @@ export default class Hands extends React.Component {
           <Form active={this.state.bangladeshForm} color={this.state.bangladeshColor} />
         </div>
         <div className="region-wrapper">
-          <figure className="hand-wrapper" onClick={this.handleClick.bind(this, 'cEurope')}>
+          <figure className={`hand-wrapper ${cEuropeActive}`} onClick={this.handleClick.bind(this, 'cEurope')}>
             <img src={centralEurope} className={`color ${cEuropeActive}`} alt="central europe" />
             <img src={centralEuropeBW} className="black-white" alt="central europe"/>
           </figure>
           <Form active={this.state.cEuropeForm} color={this.state.cEuropeColor} />
         </div>
         <div className="region-wrapper">
-          <figure className="hand-wrapper" onClick={this.handleClick.bind(this, 'china')}>
+          <figure className={`hand-wrapper ${chinaActive}`} onClick={this.handleClick.bind(this, 'china')}>
             <img src={china} className={`color ${chinaActive}`} alt="china" />
             <img src={chinaBW} className="black-white" alt="china"/>
           </figure>
           <Form active={this.state.chinaForm} color={this.state.chinaColor} />
         </div>
         <div className="region-wrapper">
-          <figure className="hand-wrapper" onClick={this.handleClick.bind(this, 'japan')}>
+          <figure className={`hand-wrapper ${japanActive}`} onClick={this.handleClick.bind(this, 'japan')}>
             <img src={japan} className={`color ${japanActive}`} alt="japan" />
             <img src={japanBW} className="black-white" alt="japan"/>
           </figure>
           <Form active={this.state.japanForm} color={this.state.japanColor} />
         </div>
         <div className="region-wrapper">
-          <figure className="hand-wrapper" onClick={this.handleClick.bind(this, 'nAmerica')}>
+          <figure className={`hand-wrapper ${nAmericaActive}`} onClick={this.handleClick.bind(this, 'nAmerica')}>
             <img src={northAmerica} className={`color ${nAmericaActive}`} alt="north america" />
             <img src={northAmericaBW} className="black-white" alt="north america"/>
           </figure>
           <Form active={this.state.nAmericaForm} color={this.state.nAmericaColor} />
         </div>
         <div className="region-wrapper">
-          <figure className="hand-wrapper" onClick={this.handleClick.bind(this, 'taiwan')}>
+          <figure className={`hand-wrapper ${taiwanActive}`} onClick={this.handleClick.bind(this, 'taiwan')}>
             <img src={taiwan} className={`color ${taiwanActive}`} alt="taiwan" />
             <img src={taiwanBW} className="black-white" alt="taiwan"/>
           </figure>
           <Form active={this.state.taiwanForm} color={this.state.taiwanColor} />
         </div>
         <div className="region-wrapper">
-          <figure className="hand-wrapper" onClick={this.handleClick.bind(this, 'other')}>
+          <figure className={`hand-wrapper ${otherActive}`} onClick={this.handleClick.bind(this, 'other')}>
             <img src={other} className={`color ${otherActive}`} alt="other" />
             <img src={otherBW} className="black-white" alt="other"/>
           </figure>
