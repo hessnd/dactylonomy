@@ -14,13 +14,20 @@ export default class Form extends React.Component {
         <input className="submit" type="submit" value="Submit"/>
       <style jsx>{`
         .form {
-          display: none;
+          display: flex;
           flex-direction: column;
           width: 100%;
           max-width: 549px;
+          position: relative;
+          transform: translateX(-50%);
+          opacity: 0;
+          z-index: -1;
+          transition: all .5s ease-out;
 
           &.active {
-            display: flex;
+            opacity: 1;
+            z-index: 1;
+            transform: translateX(0);
           }
         }
 

@@ -103,7 +103,7 @@ export default class Hands extends React.Component {
     return (
       <section className="hands">
         <div className="region-wrapper">
-          <figure className="hand-wrapper" onClick={this.handleClick.bind(this, 'bangladesh')}>
+          <figure className={`hand-wrapper ${bangladeshActive}`} onClick={this.handleClick.bind(this, 'bangladesh')}>
             <img src={bangladesh} className={`color ${bangladeshActive}`} alt="bangladesh" />
             <img src={bangladeshBW} className="black-white" alt="bangladesh" />
           </figure>
@@ -184,10 +184,22 @@ export default class Hands extends React.Component {
             width: 100%;
             margin: 0;
             max-width: 549px;
+            transition: all .5s ease-out;
+
 
             &:hover > .color {
               opacity: 1;
               z-index: 2;
+            }
+
+            @media (--large-up) {
+              left: 50%;
+              transform: translateX(-50%);
+
+              &.active {
+                left: 0;
+                transform: translateX(0);
+              }
             }
           }
 
