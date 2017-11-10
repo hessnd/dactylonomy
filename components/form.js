@@ -13,21 +13,27 @@ export default class Form extends React.Component {
         <input className="input" type="text" name="comments" id="comments"/>
         <input className="submit" type="submit" value="Submit"/>
       <style jsx>{`
+        @import './styles/variables.css';
+
         .form {
           display: flex;
           flex-direction: column;
           width: 100%;
           max-width: 549px;
           position: relative;
-          transform: translateX(-50%);
+          transform: translate(0, -50%);
           opacity: 0;
           z-index: -1;
           transition: all .5s ease-out;
 
+          @media (--large-up) {
+            transform: translate(-50%, 0);
+          }
+
           &.active {
             opacity: 1;
             z-index: 1;
-            transform: translateX(0);
+            transform: translate(0,0);
           }
         }
 
