@@ -49,7 +49,7 @@ export default () => (
         text-transform: uppercase;
         color: black;
         position: fixed;
-        transform: translate3d(0,0,0);
+        transform: translate3d(0, 0, 0);
         width: 486px;
         z-index: 10;
 
@@ -61,7 +61,7 @@ export default () => (
         &.right-to-left {
           bottom: 0;
           animation: rightToLeft 10s infinite linear;
-          transform: rotate(180deg) translate3d(0,0,0);
+          transform: rotate(180deg) translate3d(0, 0, 0);
         }
 
         &.top-to-bottom {
@@ -73,11 +73,11 @@ export default () => (
 
         &.bottom-to-top {
           left: 0;
-          transform: rotate(-90deg) translate3d(0,0,0);
+          transform: rotate(-90deg) translate3d(0, 0, 0);
           transform-origin: left top;
           animation: bottomToTop 10s infinite linear;
         }
       }
     `}</style>
   </div>
-)
+);
