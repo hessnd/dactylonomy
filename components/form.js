@@ -31,6 +31,7 @@ export default class Form extends React.Component {
             opacity: 0;
             z-index: -1;
             transition: all 0.5s ease-out;
+            height: 0;
 
             @media (--large-up) {
               transform: translate(-50%, 0);
@@ -40,6 +41,7 @@ export default class Form extends React.Component {
               opacity: 1;
               z-index: 1;
               transform: translate(0, 0);
+              height: 100%;
             }
           }
 
