@@ -35,6 +35,7 @@ export default class Form extends React.Component {
 
             @media (--large-up) {
               transform: translate(-50%, 0);
+              height: 100%;
             }
 
             &.active {
