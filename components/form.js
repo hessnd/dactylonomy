@@ -27,20 +27,6 @@ export default class Form extends React.Component {
             width: 100%;
             max-width: 549px;
             position: relative;
-            transform: translate(0, -50%);
-            opacity: 0;
-            z-index: -1;
-            transition: all 0.5s ease-out;
-
-            @media (--large-up) {
-              transform: translate(-50%, 0);
-            }
-
-            &.active {
-              opacity: 1;
-              z-index: 1;
-              transform: translate(0, 0);
-            }
           }
 
           .label {

@@ -1,5 +1,6 @@
-import Form from 'components/form';
+import { Transition } from 'react-transition-group';
 
+import Form from 'components/form';
 import bangladeshBW from 'static/hands/bangladesh/BANGLADESH_BW.gif';
 import bangladesh from 'static/hands/bangladesh/BANGLADESH.gif';
 import centralEuropeBW from 'static/hands/central-europe/C_EUROPE_BW.gif';
@@ -14,6 +15,36 @@ import taiwanBW from 'static/hands/taiwan/TAIWAN_BW.gif';
 import taiwan from 'static/hands/taiwan/TAIWAN.gif';
 import otherBW from 'static/hands/other/Other_BW.gif';
 import other from 'static/hands/other/Other.gif';
+
+const duration = 300;
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0,
+  display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
+};
+
+const transitionStyles = {
+  entering: { opacity: 0 },
+  entered: { opacity: 1 },
+};
+
+const Fade = ({ children, in: inProp }) => (
+  <Transition in={inProp} timeout={duration}>
+    {state => (
+      <div
+        style={{
+          ...defaultStyle,
+          ...transitionStyles[state],
+        }}
+      >
+        {children}
+      </div>
+    )}
+  </Transition>
+);
 
 export default class Hands extends React.Component {
   constructor(props) {
@@ -93,6 +124,7 @@ export default class Hands extends React.Component {
 
   render() {
     const bangladeshActive = this.state.bangladeshForm ? 'active' : '';
+    const bangladeshForm = this.state.bangladeshForm;
     const cEuropeActive = this.state.cEuropeForm ? 'active' : '';
     const chinaActive = this.state.chinaForm ? 'active' : '';
     const japanActive = this.state.japanForm ? 'active' : '';
@@ -100,48 +132,45 @@ export default class Hands extends React.Component {
     const taiwanActive = this.state.taiwanForm ? 'active' : '';
     const otherActive = this.state.otherForm ? 'active' : '';
 
+    function BangForm(props) {
+      const active = props.bang;
+      if (active) {
+        return <Form color={props.color} />;
+      } else {
+        return '';
+      }
+    }
+
     return (
       <section className="hands">
         <div className="region-wrapper">
           <figure
             className={`hand-wrapper ${bangladeshActive}`}
-            onClick={this.handleClick.bind(this, 'bangladesh')}>
-            <img
-              src={bangladesh}
-              className={`color ${bangladeshActive}`}
-              alt="bangladesh"
-            />
+            onClick={this.handleClick.bind(this, 'bangladesh')}
+          >
+            <img src={bangladesh} className={`color ${bangladeshActive}`} alt="bangladesh" />
             <img src={bangladeshBW} className="black-white" alt="bangladesh" />
           </figure>
-          <Form
-            active={this.state.bangladeshForm}
-            color={this.state.bangladeshColor}
-          />
+          <BangForm bang={this.state.bangladeshForm} color={this.state.bangladeshColor} />
+          {/* <Fade in={this.state.bangladeshForm}> */}
+          {/*   <Form active={this.state.bangladeshForm} color={this.state.bangladeshColor} /> */}
+          {/* </Fade> */}
         </div>
         <div className="region-wrapper">
           <figure
             className={`hand-wrapper ${cEuropeActive}`}
-            onClick={this.handleClick.bind(this, 'cEurope')}>
-            <img
-              src={centralEurope}
-              className={`color ${cEuropeActive}`}
-              alt="central europe"
-            />
-            <img
-              src={centralEuropeBW}
-              className="black-white"
-              alt="central europe"
-            />
+            onClick={this.handleClick.bind(this, 'cEurope')}
+          >
+            <img src={centralEurope} className={`color ${cEuropeActive}`} alt="central europe" />
+            <img src={centralEuropeBW} className="black-white" alt="central europe" />
           </figure>
-          <Form
-            active={this.state.cEuropeForm}
-            color={this.state.cEuropeColor}
-          />
+          <Form active={this.state.cEuropeForm} color={this.state.cEuropeColor} />
         </div>
         <div className="region-wrapper">
           <figure
             className={`hand-wrapper ${chinaActive}`}
-            onClick={this.handleClick.bind(this, 'china')}>
+            onClick={this.handleClick.bind(this, 'china')}
+          >
             <img src={china} className={`color ${chinaActive}`} alt="china" />
             <img src={chinaBW} className="black-white" alt="china" />
           </figure>
@@ -150,7 +179,8 @@ export default class Hands extends React.Component {
         <div className="region-wrapper">
           <figure
             className={`hand-wrapper ${japanActive}`}
-            onClick={this.handleClick.bind(this, 'japan')}>
+            onClick={this.handleClick.bind(this, 'japan')}
+          >
             <img src={japan} className={`color ${japanActive}`} alt="japan" />
             <img src={japanBW} className="black-white" alt="japan" />
           </figure>
@@ -159,32 +189,19 @@ export default class Hands extends React.Component {
         <div className="region-wrapper">
           <figure
             className={`hand-wrapper ${nAmericaActive}`}
-            onClick={this.handleClick.bind(this, 'nAmerica')}>
-            <img
-              src={northAmerica}
-              className={`color ${nAmericaActive}`}
-              alt="north america"
-            />
-            <img
-              src={northAmericaBW}
-              className="black-white"
-              alt="north america"
-            />
+            onClick={this.handleClick.bind(this, 'nAmerica')}
+          >
+            <img src={northAmerica} className={`color ${nAmericaActive}`} alt="north america" />
+            <img src={northAmericaBW} className="black-white" alt="north america" />
           </figure>
-          <Form
-            active={this.state.nAmericaForm}
-            color={this.state.nAmericaColor}
-          />
+          <Form active={this.state.nAmericaForm} color={this.state.nAmericaColor} />
         </div>
         <div className="region-wrapper">
           <figure
             className={`hand-wrapper ${taiwanActive}`}
-            onClick={this.handleClick.bind(this, 'taiwan')}>
-            <img
-              src={taiwan}
-              className={`color ${taiwanActive}`}
-              alt="taiwan"
-            />
+            onClick={this.handleClick.bind(this, 'taiwan')}
+          >
+            <img src={taiwan} className={`color ${taiwanActive}`} alt="taiwan" />
             <img src={taiwanBW} className="black-white" alt="taiwan" />
           </figure>
           <Form active={this.state.taiwanForm} color={this.state.taiwanColor} />
@@ -192,7 +209,8 @@ export default class Hands extends React.Component {
         <div className="region-wrapper">
           <figure
             className={`hand-wrapper ${otherActive}`}
-            onClick={this.handleClick.bind(this, 'other')}>
+            onClick={this.handleClick.bind(this, 'other')}
+          >
             <img src={other} className={`color ${otherActive}`} alt="other" />
             <img src={otherBW} className="black-white" alt="other" />
           </figure>
@@ -237,16 +255,6 @@ export default class Hands extends React.Component {
             &:hover > .color {
               opacity: 1;
               z-index: 2;
-            }
-
-            @media (--large-up) {
-              left: 50%;
-              transform: translateX(-50%);
-
-              &.active {
-                left: 0;
-                transform: translateX(0);
-              }
             }
           }
 
