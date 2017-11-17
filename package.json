@@ -11,6 +11,36 @@
   "keywords": [],
   "author": "Nick Hess",
   "license": "ISC",
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": ["airbnb", "prettier"],
+    "plugins": "prettier",
+    "rules": {
+      "react/jsx-filename-extension":[
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
+      "react/react-in-jsx-scope": 0,
+      "prettier/prettier": [
+        "error",
+        {
+          "semi": true,
+          "trailingComma": "es5",
+          "singleQuote": true,
+          "printWidth": "100"
+        }
+      ]
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
   "dependencies": {
     "babel-plugin-module-resolver": "^2.7.1",
     "babel-plugin-transform-assets-import-to-string": "^1.0.1",
