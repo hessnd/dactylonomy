@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-export default ({ children }) => (
+const Layout = ({ children }) => (
   <div className="layout">
     <Head>
       <meta charSet="utf-8" />
@@ -9,29 +10,41 @@ export default ({ children }) => (
       <title>Dactylonomy</title>
     </Head>
     {children}
-    <style jsx global>{`
-      @import './styles/typography.css';
+    <style jsx global>
+      {`
+        @import './styles/typography.css';
 
-      html,
-      body {
-        height: 100%;
-        width: 100%;
-      }
+        html,
+        body {
+          height: 100%;
+          width: 100%;
+        }
 
-      html {
-        font-size: 62.5%;
-      }
+        html {
+          font-size: 62.5%;
+        }
 
-      body {
-        font-size: 1.6em;
-        background: white;
-        margin: 0;
-        -webkit-font-smoothing: antialiased;
-      }
+        body {
+          font-size: 1.6em;
+          background: white;
+          margin: 0;
+          -webkit-font-smoothing: antialiased;
+        }
 
-      .layout {
-        overflow-x: hidden;
-      }
-    `}</style>
+        .layout {
+          overflow-x: hidden;
+        }
+      `}
+    </style>
   </div>
 );
+
+Layout.defaultProps = {
+  children: '',
+};
+
+Layout.propTypes = {
+  children: PropTypes.node,
+};
+
+export default Layout;
