@@ -1,20 +1,22 @@
-export default ({ active, color }) => {
+import PropTypes from 'prop-types';
+
+const Form = ({ active, color }) => {
   const isActive = active ? 'active' : '';
 
   return (
     <form className={`form ${isActive}`}>
       <label className="label" htmlFor="origin">
         Where are you from?
+        <input className="input" type="text" name="origin" id="origin" />
       </label>
-      <input className="input" type="text" name="origin" id="origin" />
       <label className="label" htmlFor="email">
         What is your email?
+        <input className="input" type="email" name="email" id="email" />
       </label>
-      <input className="input" type="email" name="email" id="email" />
       <label className="label" htmlFor="comments">
         Comments?
+        <input className="input" type="text" name="comments" id="comments" />
       </label>
-      <input className="input" type="text" name="comments" id="comments" />
       <input className="submit" type="submit" value="Submit" />
       <style jsx>
         {`
@@ -43,6 +45,8 @@ export default ({ active, color }) => {
             text-align: justify;
             color: black;
             padding: 2.5rem 0 1.3rem 0;
+            position: relative;
+            height: 5rem;
           }
 
           .input {
@@ -53,6 +57,10 @@ export default ({ active, color }) => {
             border: none;
             outline: 0;
             border-bottom: solid 0.3rem ${color};
+            position: absolute;
+            left: 0;
+            top: 5rem;
+            width: 100%;
           }
 
           .submit {
@@ -74,3 +82,15 @@ export default ({ active, color }) => {
     </form>
   );
 };
+
+Form.defaultProps = {
+  active: false,
+  color: '#000000',
+};
+
+Form.propTypes = {
+  active: PropTypes.bool,
+  color: PropTypes.string,
+};
+
+export default Form;
