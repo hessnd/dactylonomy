@@ -19,23 +19,25 @@ class Hand extends React.Component {
   render() {
     const isActive = this.state.handActive ? 'active' : '';
     return (
-      <div
-        tabIndex="0"
-        role="button"
-        className="hands-wrapper"
-        onClick={this.handleClick}
-        onKeyDown={this.handleClick}
-      >
-        <figure className={`hands ${isActive}`}>
-          <img src={this.props.colorHand} className={`color ${isActive}`} alt={this.props.name} />
-          <img src={this.props.bwHand} className="black-white" alt={this.props.name} />
-        </figure>
+      <div className="region-wrapper">
+        <div
+          className="hands-wrapper"
+          tabIndex="0"
+          role="button"
+          onClick={this.handleClick}
+          onKeyDown={this.handleClick}
+        >
+          <figure className={`hands ${isActive}`}>
+            <img src={this.props.colorHand} className={`color ${isActive}`} alt={this.props.name} />
+            <img src={this.props.bwHand} className="black-white" alt={this.props.name} />
+          </figure>
+        </div>
         <Form active={this.state.form} color={this.props.color} />
         <style jsx>
           {`
             @import './styles/variables.css';
 
-            .hands-wrapper {
+            .region-wrapper {
               width: 100%;
               max-width: 680px;
               display: flex;
