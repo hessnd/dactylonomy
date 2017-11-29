@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import Layout from 'components/layout';
 import Banners from 'components/banners';
 import Hand from 'components/hand';
@@ -147,9 +145,5 @@ class Index extends React.Component {
     );
   }
 }
-
-Index.propTypes = {
-  onHandClick: PropTypes.func,
-};
 
 export default Index;

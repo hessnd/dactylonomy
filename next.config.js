@@ -7,6 +7,7 @@ module.exports = {
       exclude: /node_modules/,
       options: {
         emitWarning: dev,
+        emitError: dev,
       },
     };
     config.module.rules.unshift(eslinter);
