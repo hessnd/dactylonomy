@@ -13,10 +13,13 @@
   "license": "ISC",
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": ["airbnb", "prettier"],
+    "extends": [
+      "airbnb",
+      "prettier"
+    ],
     "plugins": "prettier",
     "rules": {
-      "react/jsx-filename-extension":[
+      "react/jsx-filename-extension": [
         1,
         {
           "extensions": [
@@ -42,17 +45,17 @@
     }
   },
   "dependencies": {
-    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-module-resolver": "^3.1.0",
     "babel-plugin-transform-assets-import-to-string": "^1.0.1",
-    "next": "^4.1.4",
-    "node-sass": "^4.5.3",
-    "postcss-cssnext": "^3.0.2",
+    "next": "^5.0.0",
+    "node-sass": "^4.7.2",
+    "postcss-cssnext": "^3.1.0",
     "postcss-easy-import": "^3.0.0",
-    "postcss-import": "^11.0.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "postcss-import": "^11.1.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "sass-loader": "^6.0.6",
-    "styled-jsx-plugin-postcss": "^0.1.1"
+    "styled-jsx-plugin-postcss": "^0.1.2"
   },
   "devDependencies": {}
 }
