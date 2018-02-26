@@ -1,7 +1,6 @@
 import Layout from 'components/layout';
 import Banners from 'components/banners';
 import Hand from 'components/hand';
-import firebase from 'lib/firebase';
 
 import bangladeshBW from 'static/hands/bangladesh/BANGLADESH_BW.gif';
 import bangladesh from 'static/hands/bangladesh/BANGLADESH.gif';
@@ -74,11 +73,6 @@ class Index extends React.Component {
         },
       ],
     };
-  }
-
-  componentDidMount() {
-    console.log(firebase.name);
-    console.log(firebase.database());
   }
 
   render() {

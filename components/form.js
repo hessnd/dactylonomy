@@ -1,9 +1,12 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import firebase from 'lib/firebase';
 
 class Form extends Component {
   constructor() {
     super();
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       origin: '',
       email: '',
@@ -11,11 +14,20 @@ class Form extends Component {
     };
   }
 
+  componentDidMount() {
+    this.submissionsRef = firebase.database().ref('submissions');
+  }
+
   handleChange(e) {
     const { value, name } = e.target;
     this.setState(() => ({
       [name]: value,
     }));
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.submissionsRef.push(this.state);
   }
 
   render() {
@@ -56,7 +68,7 @@ class Form extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <input className="submit" type="submit" value="Submit" />
+        <input className="submit" type="submit" value="Submit" onClick={this.handleSubmit} />
         <style jsx>
           {`
             @import './styles/variables.css';
