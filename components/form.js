@@ -1,87 +1,127 @@
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const Form = ({ active, color }) => {
-  const isActive = active ? 'active' : '';
+class Form extends Component {
+  constructor() {
+    super();
+    this.state = {
+      origin: '',
+      email: '',
+      comments: '',
+    };
+  }
 
-  return (
-    <form className={`form ${isActive}`}>
-      <label className="label" htmlFor="origin">
-        Where are you from?
-        <input className="input" type="text" name="origin" id="origin" />
-      </label>
-      <label className="label" htmlFor="email">
-        What is your email?
-        <input className="input" type="email" name="email" id="email" />
-      </label>
-      <label className="label" htmlFor="comments">
-        Comments?
-        <input className="input" type="text" name="comments" id="comments" />
-      </label>
-      <input className="submit" type="submit" value="Submit" />
-      <style jsx>
-        {`
-          @import './styles/variables.css';
+  handleChange(e) {
+    const { value, name } = e.target;
+    this.setState(() => ({
+      [name]: value,
+    }));
+  }
 
-          .form {
-            display: none;
-            flex-direction: column;
-            width: 100%;
-            max-width: 549px;
-            position: relative;
-            opacity: 1;
-            transition: all 0.5s ease-out;
-            height: 100%;
+  render() {
+    const isActive = this.props.active ? 'active' : '';
 
-            &.active {
-              display: flex;
+    return (
+      <form className={`form ${isActive}`}>
+        <label className="label" htmlFor="origin">
+          Where are you from?
+          <input
+            className="input"
+            id="origin"
+            type="text"
+            name="origin"
+            value={this.state.origin}
+            onChange={this.handleChange}
+          />
+        </label>
+        <label className="label" htmlFor="email">
+          What is your email?
+          <input
+            className="input"
+            id="email"
+            type="email"
+            name="email"
+            value={this.state.email}
+            onChange={this.handleChange}
+          />
+        </label>
+        <label className="label" htmlFor="comments">
+          Comments?
+          <input
+            className="input"
+            id="comments"
+            type="text"
+            name="comments"
+            value={this.state.comments}
+            onChange={this.handleChange}
+          />
+        </label>
+        <input className="submit" type="submit" value="Submit" />
+        <style jsx>
+          {`
+            @import './styles/variables.css';
+
+            .form {
+              display: none;
+              flex-direction: column;
+              width: 100%;
+              max-width: 549px;
+              position: relative;
+              opacity: 1;
+              transition: all 0.5s ease-out;
+              height: 100%;
+
+              &.active {
+                display: flex;
+              }
             }
-          }
 
-          .label {
-            font-family: 'ACaslonPro';
-            font-size: 1.6rem;
-            font-weight: bold;
-            font-style: italic;
-            text-align: justify;
-            color: black;
-            padding: 2.5rem 0 1.3rem 0;
-            position: relative;
-            height: 5rem;
-          }
+            .label {
+              font-family: 'ACaslonPro';
+              font-size: 1.6rem;
+              font-weight: bold;
+              font-style: italic;
+              text-align: justify;
+              color: black;
+              padding: 2.5rem 0 1.3rem 0;
+              position: relative;
+              height: 5rem;
+            }
 
-          .input {
-            font-family: 'ACaslonPro';
-            font-size: 1.6rem;
-            text-align: justify;
-            color: black;
-            border: none;
-            outline: 0;
-            border-bottom: solid 0.3rem ${color};
-            position: absolute;
-            left: 0;
-            top: 5rem;
-            width: 100%;
-          }
+            .input {
+              font-family: 'ACaslonPro';
+              font-size: 1.6rem;
+              text-align: justify;
+              color: black;
+              border: none;
+              outline: 0;
+              border-bottom: solid 0.3rem ${this.props.color};
+              position: absolute;
+              left: 0;
+              top: 5rem;
+              width: 100%;
+            }
 
-          .submit {
-            font-family: 'ACaslonPro';
-            font-size: 1.6rem;
-            font-weight: bold;
-            font-style: italic;
-            text-align: justify;
-            color: black;
-            border: none;
-            background: white;
-            align-self: flex-start;
-            box-sizing: border-box;
-            margin-top: 2.5rem;
-            cursor: pointer;
-          }
-        `}
-      </style>
-    </form>
-  );
-};
+            .submit {
+              font-family: 'ACaslonPro';
+              font-size: 1.6rem;
+              font-weight: bold;
+              font-style: italic;
+              text-align: justify;
+              color: black;
+              border: none;
+              background: white;
+              align-self: flex-start;
+              box-sizing: border-box;
+              margin-top: 2.5rem;
+              cursor: pointer;
+            }
+          `}
+        </style>
+      </form>
+    );
+  }
+}
 
 Form.defaultProps = {
   active: false,
