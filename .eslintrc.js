@@ -15,6 +15,7 @@ module.exports = {
     'import/extensions': 0,
     'import/no-extraneous-dependencies': 0,
     'import/no-unresolved': 0,
+    'no-console': 0,
     'prettier/prettier': [
       'error',
       {

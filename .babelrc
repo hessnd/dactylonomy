@@ -31,9 +31,18 @@
         "root": ["./"],
         "alias": {
           "components": "./components",
-          "static": "./static"
+          "static": "./static",
+          "lib": "./lib"
         }
       }
     ]
-  ]
+  ],
+  "env": {
+    "development": {
+      "plugins": ["inline-dotenv"]
+    },
+    "production": {
+      "plugins": ["transform-inline-environment-variables"]
+    }
+  }
 }
