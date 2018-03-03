@@ -39,6 +39,7 @@ class Form extends Component {
 
   render() {
     const isActive = this.props.active ? 'active' : '';
+    const { name } = this.props;
 
     return (
       <form className={`form ${isActive}`}>
@@ -64,17 +65,31 @@ class Form extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <label className="label" htmlFor="comments">
-          Comments?
-          <input
-            className="input"
-            id="comments"
-            type="text"
-            name="comments"
-            value={this.state.comments}
-            onChange={this.handleChange}
-          />
-        </label>
+        {name === 'other' ? (
+          <label className="label" htmlFor="comments">
+            Can you describe in detail how you count on your fingers?
+            <input
+              className="input"
+              id="comments"
+              type="text"
+              name="comments"
+              value={this.state.comments}
+              onChange={this.handleChange}
+            />
+          </label>
+        ) : (
+          <label className="label" htmlFor="comments">
+            Comments?
+            <input
+              className="input"
+              id="comments"
+              type="text"
+              name="comments"
+              value={this.state.comments}
+              onChange={this.handleChange}
+            />
+          </label>
+        )}
         <input className="submit" type="submit" value="Submit" onClick={this.handleSubmit} />
         <style jsx>
           {`
