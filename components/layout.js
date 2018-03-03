@@ -33,6 +33,7 @@ const Layout = ({ children }) => (
 
         .layout {
           overflow-x: hidden;
+          padding-bottom: 6.5rem;
         }
       `}
     </style>
