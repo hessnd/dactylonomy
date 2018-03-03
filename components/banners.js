@@ -6,6 +6,8 @@ export default () => (
     <span className="banner right-to-left">Dactylonomy Around The World</span>
     <style jsx>
       {`
+        @import './styles/variables.css';
+
         @keyframes leftToRight {
           0% {
             left: -486px;
@@ -42,6 +44,82 @@ export default () => (
           }
         }
 
+        @media (--medium-up) {
+          @keyframes leftToRight {
+            0% {
+              left: -810px;
+            }
+            100% {
+              left: 100%;
+            }
+          }
+
+          @keyframes rightToLeft {
+            0% {
+              left: 100%;
+            }
+            100% {
+              left: -810px;
+            }
+          }
+
+          @keyframes topToBottom {
+            0% {
+              top: calc(100% + 810px);
+            }
+            100% {
+              top: 0;
+            }
+          }
+
+          @keyframes bottomToTop {
+            0% {
+              top: 0;
+            }
+            100% {
+              top: calc(100% + 810px);
+            }
+          }
+        }
+
+        @media (--large-up) {
+          @keyframes leftToRight {
+            0% {
+              left: -1012px;
+            }
+            100% {
+              left: 100%;
+            }
+          }
+
+          @keyframes rightToLeft {
+            0% {
+              left: 100%;
+            }
+            100% {
+              left: -1012px;
+            }
+          }
+
+          @keyframes topToBottom {
+            0% {
+              top: calc(100% + 1012px);
+            }
+            100% {
+              top: 0;
+            }
+          }
+
+          @keyframes bottomToTop {
+            0% {
+              top: 0;
+            }
+            100% {
+              top: calc(100% + 1012px);
+            }
+          }
+        }
+
         .banner {
           font-family: 'ACaslonPro';
           font-size: 2.4rem;
@@ -53,6 +131,16 @@ export default () => (
           transform: translate3d(0, 0, 0);
           width: 486px;
           z-index: 10;
+
+          @media (--medium-up) {
+            font-size: 4rem;
+            width: 810px;
+          }
+
+          @media (--large-up) {
+            font-size: 5rem;
+            width: 1012px;
+          }
 
           &.left-to-right {
             top: 0;
