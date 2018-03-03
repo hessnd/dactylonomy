@@ -32,7 +32,7 @@ class Hand extends React.Component {
             <img src={this.props.bwHand} className="black-white" alt={this.props.name} />
           </figure>
         </div>
-        <Form active={this.state.form} color={this.props.color} />
+        <Form name={this.props.name} active={this.state.form} color={this.props.color} />
         <style jsx>
           {`
             @import './styles/variables.css';

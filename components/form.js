@@ -8,10 +8,17 @@ class Form extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
+      hand: '',
       origin: '',
       email: '',
       comments: '',
     };
+  }
+
+  componentWillMount() {
+    this.setState({
+      hand: this.props.name,
+    });
   }
 
   componentDidMount() {
@@ -138,11 +145,13 @@ class Form extends Component {
 Form.defaultProps = {
   active: false,
   color: '#000000',
+  name: '',
 };
 
 Form.propTypes = {
   active: PropTypes.bool,
   color: PropTypes.string,
+  name: PropTypes.string,
 };
 
 export default Form;
