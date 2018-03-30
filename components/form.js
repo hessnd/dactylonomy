@@ -3,8 +3,28 @@ import PropTypes from 'prop-types';
 import firebase from 'lib/firebase';
 
 class Form extends Component {
-  constructor() {
-    super();
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.name !== prevState.hand) {
+      return {
+        hand: nextProps.name,
+        origin: '',
+        email: '',
+        comments: '',
+      };
+    }
+    if (!nextProps.active) {
+      return {
+        hand: prevState.hand,
+        origin: '',
+        email: '',
+        comments: '',
+      };
+    }
+    return null;
+  }
+
+  constructor(props) {
+    super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
@@ -13,12 +33,6 @@ class Form extends Component {
       email: '',
       comments: '',
     };
-  }
-
-  componentWillMount() {
-    this.setState({
-      hand: this.props.name,
-    });
   }
 
   componentDidMount() {
