@@ -12,15 +12,13 @@ class Form extends Component {
         comments: '',
       };
     }
-    if (!nextProps.active) {
-      return {
-        hand: prevState.hand,
-        origin: '',
-        email: '',
-        comments: '',
-      };
-    }
-    return null;
+
+    return {
+      hand: prevState.hand,
+      origin: '',
+      email: '',
+      comments: '',
+    };
   }
 
   constructor(props) {
