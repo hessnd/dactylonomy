@@ -85,26 +85,14 @@ class Index extends React.Component {
 
   resetFormState(activeFormName) {
     // we want to update the formActive state for all hands except activeFormName
-    const newRegions = this.state.regions.map(obj => {
-      if (obj.name === activeFormName) {
-        return {
-          order: obj.order,
-          name: obj.name,
-          color: obj.color,
-          colorHand: obj.colorHand,
-          bwHand: obj.bwHand,
-          formActive: true,
-        };
-      }
-      return {
-        order: obj.order,
-        name: obj.name,
-        color: obj.color,
-        colorHand: obj.colorHand,
-        bwHand: obj.bwHand,
-        formActive: false,
-      };
-    });
+    const newRegions = this.state.regions.map(obj => ({
+      order: obj.order,
+      name: obj.name,
+      color: obj.color,
+      colorHand: obj.colorHand,
+      bwHand: obj.bwHand,
+      formActive: obj.name === activeFormName,
+    }));
 
     this.setState({ regions: newRegions });
   }

@@ -4,17 +4,8 @@ import firebase from 'lib/firebase';
 
 class Form extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.name !== prevState.hand) {
-      return {
-        hand: nextProps.name,
-        origin: '',
-        email: '',
-        comments: '',
-      };
-    }
-
     return {
-      hand: prevState.hand,
+      hand: nextProps.name !== prevState.hand ? nextProps.name : prevState.hand,
       origin: '',
       email: '',
       comments: '',
@@ -52,7 +43,6 @@ class Form extends Component {
   render() {
     const isActive = this.props.active ? 'active' : '';
     const { name } = this.props;
-
     return (
       <form className={`form ${isActive}`}>
         <label className="label" htmlFor="origin">
