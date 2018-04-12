@@ -3,8 +3,17 @@ import PropTypes from 'prop-types';
 import firebase from 'lib/firebase';
 
 class Form extends Component {
-  constructor() {
-    super();
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      hand: nextProps.name !== prevState.hand ? nextProps.name : prevState.hand,
+      origin: '',
+      email: '',
+      comments: '',
+    };
+  }
+
+  constructor(props) {
+    super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
@@ -13,12 +22,6 @@ class Form extends Component {
       email: '',
       comments: '',
     };
-  }
-
-  componentWillMount() {
-    this.setState({
-      hand: this.props.name,
-    });
   }
 
   componentDidMount() {
@@ -40,7 +43,6 @@ class Form extends Component {
   render() {
     const isActive = this.props.active ? 'active' : '';
     const { name } = this.props;
-
     return (
       <form className={`form ${isActive}`}>
         <label className="label" htmlFor="origin">

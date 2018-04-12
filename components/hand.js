@@ -6,15 +6,14 @@ class Hand extends React.Component {
     super(props);
     this.state = {
       handActive: false,
-      form: false,
     };
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
     this.setState({
       handActive: !this.state.handActive,
-      form: !this.state.form,
     });
+    this.props.resetFormState(this.props.name);
   }
   render() {
     const isActive = this.state.handActive ? 'active' : '';
@@ -32,7 +31,7 @@ class Hand extends React.Component {
             <img src={this.props.bwHand} className="black-white" alt={this.props.name} />
           </figure>
         </div>
-        <Form name={this.props.name} active={this.state.form} color={this.props.color} />
+        <Form name={this.props.name} active={this.props.formActive} color={this.props.color} />
         <style jsx>
           {`
             @import './styles/variables.css';
@@ -106,6 +105,7 @@ Hand.defaultProps = {
   color: '#000000',
   colorHand: '',
   bwHand: '',
+  formActive: false,
 };
 
 Hand.propTypes = {
@@ -113,6 +113,8 @@ Hand.propTypes = {
   color: PropTypes.string,
   colorHand: PropTypes.string,
   bwHand: PropTypes.string,
+  formActive: PropTypes.bool,
+  resetFormState: PropTypes.func.isRequired,
 };
 
 export default Hand;

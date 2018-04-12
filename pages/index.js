@@ -28,6 +28,7 @@ class Index extends React.Component {
           color: '#ffc74f',
           colorHand: bangladesh,
           bwHand: bangladeshBW,
+          formActive: false,
         },
         {
           order: 1,
@@ -35,6 +36,7 @@ class Index extends React.Component {
           color: '#d09afc',
           colorHand: centralEurope,
           bwHand: centralEuropeBW,
+          formActive: false,
         },
         {
           order: 2,
@@ -42,6 +44,7 @@ class Index extends React.Component {
           color: '#475aeb',
           colorHand: china,
           bwHand: chinaBW,
+          formactive: false,
         },
         {
           order: 3,
@@ -49,6 +52,7 @@ class Index extends React.Component {
           color: '#6ad4fc',
           colorHand: japan,
           bwHand: japanBW,
+          formActive: false,
         },
         {
           order: 4,
@@ -56,6 +60,7 @@ class Index extends React.Component {
           color: '#fc92e7',
           colorHand: northAmerica,
           bwHand: northAmericaBW,
+          formActive: false,
         },
         {
           order: 5,
@@ -63,6 +68,7 @@ class Index extends React.Component {
           color: '#5ae079',
           colorHand: taiwan,
           bwHand: taiwanBW,
+          formActive: false,
         },
         {
           order: 6,
@@ -70,9 +76,25 @@ class Index extends React.Component {
           color: '#f21c1c',
           colorHand: other,
           bwHand: otherBW,
+          formActive: false,
         },
       ],
     };
+    this.resetFormState = this.resetFormState.bind(this);
+  }
+
+  resetFormState(activeFormName) {
+    // we want to update the formActive state for all hands except activeFormName
+    const newRegions = this.state.regions.map(obj => ({
+      order: obj.order,
+      name: obj.name,
+      color: obj.color,
+      colorHand: obj.colorHand,
+      bwHand: obj.bwHand,
+      formActive: obj.name === activeFormName,
+    }));
+
+    this.setState({ regions: newRegions });
   }
 
   render() {
@@ -104,6 +126,8 @@ class Index extends React.Component {
               color={hand.color}
               colorHand={hand.colorHand}
               bwHand={hand.bwHand}
+              formActive={hand.formActive}
+              resetFormState={this.resetFormState}
             />
           ))}
         </section>
