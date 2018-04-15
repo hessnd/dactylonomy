@@ -29,6 +29,7 @@ const Layout = ({ children }) => (
           background: white;
           margin: 0;
           -webkit-font-smoothing: antialiased;
+          cursor: url(../static/pointer/pointer.png), auto;
         }
 
         .layout {
