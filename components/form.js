@@ -106,7 +106,6 @@ class Form extends Component {
               opacity: 1;
               transition: all 0.5s ease-out;
               height: 100%;
-
               &.active {
                 display: flex;
               }
@@ -150,7 +149,12 @@ class Form extends Component {
               align-self: flex-start;
               box-sizing: border-box;
               margin-top: 2.5rem;
-              cursor: pointer;
+            }
+
+            .label,
+            .input,
+            .submit {
+              cursor: url(../static/pointer/pointer.png), auto;
             }
           `}
         </style>

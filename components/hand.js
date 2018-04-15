@@ -53,7 +53,6 @@ class Hand extends React.Component {
             }
 
             .hands {
-              cursor: pointer;
               position: relative;
               width: 100%;
               margin: 0;
