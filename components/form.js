@@ -106,6 +106,7 @@ class Form extends Component {
               opacity: 1;
               transition: all 0.5s ease-out;
               height: 100%;
+              
               &.active {
                 display: flex;
               }
