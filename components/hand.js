@@ -11,10 +11,13 @@ class Hand extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
-    this.setState({
-      handActive: !this.state.handActive,
-      form: !this.state.form,
-    });
+    this.setState(
+      {
+        handActive: !this.state.handActive,
+        form: !this.state.form,
+      },
+      () => this.props.onHandClick(this.state.form)
+    );
   }
   render() {
     const isActive = this.state.handActive ? 'active' : '';
@@ -100,7 +103,6 @@ class Hand extends React.Component {
     );
   }
 }
-
 Hand.defaultProps = {
   name: '',
   color: '#000000',
@@ -113,6 +115,7 @@ Hand.propTypes = {
   color: PropTypes.string,
   colorHand: PropTypes.string,
   bwHand: PropTypes.string,
+  onHandClick: PropTypes.func.isRequired,
 };
 
 export default Hand;
