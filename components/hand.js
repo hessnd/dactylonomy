@@ -36,8 +36,14 @@ class Hand extends React.Component {
           {`
             @import './styles/variables.css';
 
-            .hands-wrapper {
+            .region-wrapper {
+              display: flex;
+              flex-flow: row;
               width: 100%;
+              justify-content: center;
+            }
+
+            .hands-wrapper {
               max-width: 680px;
               display: flex;
               flex-direction: column;

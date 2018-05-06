@@ -98,17 +98,32 @@ class Form extends Component {
             @import './styles/variables.css';
 
             .form {
-              display: none;
+              display: flex;
               flex-direction: column;
-              width: 100%;
+              width: 0;
               max-width: 549px;
               position: relative;
-              opacity: 1;
-              transition: all 0.5s ease-out;
+              opacity: 0;
               height: 100%;
+              left: -15rem;
+              margin: 0 2rem;
+              overflow: hidden;
 
               &.active {
-                display: flex;
+                width: 100%;
+                animation: slideIn 1s forwards;
+                animation-delay: 0.75s;
+                transition: width 1s ease-in;
+              }
+            }
+
+            @keyframes slideIn {
+              60% {
+                opacity: 0.3;
+              }
+              100% {
+                left: 2rem;
+                opacity: 1;
               }
             }
 
