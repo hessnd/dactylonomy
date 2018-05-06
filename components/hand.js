@@ -11,12 +11,12 @@ class Hand extends React.Component {
   }
   handleClick() {
     this.setState({
-      handActive: !this.state.handActive,
+      handActive: true,
     });
-    this.props.resetFormState(this.props.name);
+    this.props.resetFormState(this.props.name, false);
   }
   render() {
-    const isActive = this.state.handActive ? 'active' : '';
+    const isActive = this.state.formActive ? 'active' : '';
     return (
       <div className="region-wrapper">
         <div
@@ -31,7 +31,13 @@ class Hand extends React.Component {
             <img src={this.props.bwHand} className="black-white" alt={this.props.name} />
           </figure>
         </div>
-        <Form name={this.props.name} active={this.props.formActive} color={this.props.color} />
+        <Form
+          name={this.props.name}
+          active={this.props.formActive}
+          color={this.props.color}
+          handActive={this.state.handActive}
+          resetFormState={this.props.resetFormState}
+        />
         <style jsx>
           {`
             @import './styles/variables.css';

@@ -38,13 +38,14 @@ class Form extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.submissionsRef.push(this.state);
+    this.props.resetFormState(this.props.name, true);
   }
 
   render() {
-    const isActive = this.props.active ? 'active' : '';
+    const isActive = this.props.active ? 'active' : 'not-active';
     const { name } = this.props;
     return (
-      <form className={`form ${isActive}`}>
+      <form className={`form ${this.props.handActive || this.props.active ? isActive : ''}`}>
         <label className="label" htmlFor="origin">
           Where are you from?
           <input
@@ -100,30 +101,60 @@ class Form extends Component {
             .form {
               display: flex;
               flex-direction: column;
-              width: 0;
               max-width: 549px;
               position: relative;
-              opacity: 0;
               height: 100%;
               left: -15rem;
               margin: 0 2rem;
+              width: 0;
+              opacity: 0;
               overflow: hidden;
 
               &.active {
-                width: 100%;
-                animation: slideIn 1s forwards;
-                animation-delay: 0.75s;
-                transition: width 1s ease-in;
+                animation: slideIn 1.5s forwards;
+              }
+              &.not-active {
+                animation: slideOut 1.5s forwards;
               }
             }
-
             @keyframes slideIn {
+              0% {
+                width: 0;
+                opacity: 0;
+              }
+              40% {
+                opacity: 0;
+                left: -6rem;
+              }
               60% {
-                opacity: 0.3;
+                opacity: 0;
+                left: -4rem;
+                width: 95%;
+              }
+              80% {
+                opacity: 0.4;
               }
               100% {
+                width: 100%;
                 left: 2rem;
                 opacity: 1;
+              }
+            }
+            @keyframes slideOut {
+              0% {
+                opacity: 1;
+                left: 2rem;
+                width: 100%;
+              }
+              60% {
+                opacity: 0;
+                left: -15rem;
+                width: 95%;
+              }
+              100% {
+                opacity: 0;
+                left: -15rem;
+                width: 0;
               }
             }
 
@@ -178,12 +209,15 @@ Form.defaultProps = {
   active: false,
   color: '#000000',
   name: '',
+  handActive: false,
 };
 
 Form.propTypes = {
   active: PropTypes.bool,
   color: PropTypes.string,
   name: PropTypes.string,
+  handActive: PropTypes.bool,
+  resetFormState: PropTypes.func.isRequired,
 };
 
 export default Form;
