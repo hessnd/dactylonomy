@@ -4,25 +4,17 @@ import Form from 'components/form';
 class Hand extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      handActive: false,
-    };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    const { handActive } = this.state;
     const { resetFormState, name } = this.props;
-    this.setState({
-      handActive: !handActive,
-    });
     resetFormState(name);
   }
 
   render() {
-    const { handActive } = this.state;
     const { colorHand, bwHand, name, color, formActive } = this.props;
-    const isActive = handActive ? 'active' : '';
+    const isActive = formActive ? 'active' : '';
 
     return (
       <div className="region-wrapper">
