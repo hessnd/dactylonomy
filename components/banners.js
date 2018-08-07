@@ -152,14 +152,14 @@ export default () => (
 
           &.right-to-left {
             bottom: 0;
-            animation: rightToLeft 10s infinite linear;
+            animation: rightToLeft 10s infinite linear 1s;
             transform: rotate(180deg) translate3d(0, 0, 0);
 
             @media (--medium-up) {
-              animation: rightToLeftMedium 10s infinite linear;
+              animation: rightToLeftMedium 10s infinite linear 1s;
             }
             @media (--large-up) {
-              animation: rightToLeftLarge 10s infinite linear;
+              animation: rightToLeftLarge 10s infinite linear 1s;
             }
           }
 
@@ -167,13 +167,13 @@ export default () => (
             right: 0;
             transform: rotate(90deg);
             transform-origin: right top;
-            animation: topToBottom 10s infinite linear;
+            animation: topToBottom 10s infinite linear 1.5s;
 
             @media (--medium-up) {
-              animation: topToBottomMedium 10s infinite linear;
+              animation: topToBottomMedium 10s infinite linear 1.5s;
             }
             @media (--large-up) {
-              animation: topToBottomLarge 10s infinite linear;
+              animation: topToBottomLarge 10s infinite linear 1.5s;
             }
           }
 
@@ -181,13 +181,13 @@ export default () => (
             left: 0;
             transform: rotate(-90deg) translate3d(0, 0, 0);
             transform-origin: left top;
-            animation: bottomToTop 10s infinite linear;
+            animation: bottomToTop 10s infinite linear 2s;
 
             @media (--medium-up) {
-              animation: bottomToTopMedium 10s infinite linear;
+              animation: bottomToTopMedium 10s infinite linear 2s;
             }
             @media (--large-up) {
-              animation: bottomToTopLarge 10s infinite linear;
+              animation: bottomToTopLarge 10s infinite linear 2s;
             }
           }
         }
