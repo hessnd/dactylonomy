@@ -90,18 +90,29 @@ class Form extends Component {
             @import './styles/variables.css';
 
             .form {
-              display: none;
+              display: flex;
+              opacity: 0;
+              visibility: hidden;
               flex-direction: column;
               width: 100%;
               max-width: 549px;
               position: relative;
               opacity: 1;
-              transition: all 0.5s ease-out;
               height: 100%;
               padding: 0 1rem;
+              box-sizing: border-box;
+              transition: transform 0.5s ease-in;
+
+              @media (--large-up) {
+                position: relative;
+                right: 50%;
+                transform: translateX(50%);
+              }
 
               &.active {
-                display: flex;
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(100%);
               }
             }
 

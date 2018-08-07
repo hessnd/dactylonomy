@@ -19,7 +19,7 @@ class Hand extends React.Component {
     return (
       <div className="region-wrapper">
         <div
-          className="hands-wrapper"
+          className={`hands-wrapper ${isActive}`}
           tabIndex="0"
           role="button"
           onClick={this.handleClick}
@@ -53,17 +53,22 @@ class Hand extends React.Component {
               flex-direction: column;
               align-items: center;
               justify-content: center;
-              padding: 2rem 0;
+              padding: 2rem 1rem;
+              box-sizing: border-box;
               outline-color: ${color};
+              transition: transform 0.5s ease-in;
 
               @media (--large-up) {
                 flex-direction: row;
                 max-width: 1098px;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
               }
-            }
 
-            .hands-wrapper {
-              padding: 0 1rem;
+              &.active {
+                transform: translateX(-100%);
+              }
             }
 
             .hands {
