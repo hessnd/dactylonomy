@@ -9,14 +9,21 @@ class Hand extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick() {
+    const { handActive } = this.state;
+    const { resetFormState, name } = this.props;
     this.setState({
-      handActive: !this.state.handActive,
+      handActive: !handActive,
     });
-    this.props.resetFormState(this.props.name);
+    resetFormState(name);
   }
+
   render() {
-    const isActive = this.state.handActive ? 'active' : '';
+    const { handActive } = this.state;
+    const { colorHand, bwHand, name, color, formActive } = this.props;
+    const isActive = handActive ? 'active' : '';
+
     return (
       <div className="region-wrapper">
         <div
@@ -27,11 +34,11 @@ class Hand extends React.Component {
           onKeyDown={this.handleClick}
         >
           <figure className={`hands ${isActive}`}>
-            <img src={this.props.colorHand} className={`color ${isActive}`} alt={this.props.name} />
-            <img src={this.props.bwHand} className="black-white" alt={this.props.name} />
+            <img src={colorHand} className={`color ${isActive}`} alt={name} />
+            <img src={bwHand} className="black-white" alt={name} />
           </figure>
         </div>
-        <Form name={this.props.name} active={this.props.formActive} color={this.props.color} />
+        <Form name={name} active={formActive} color={color} />
         <style jsx>
           {`
             @import './styles/variables.css';
@@ -44,7 +51,7 @@ class Hand extends React.Component {
               align-items: center;
               justify-content: center;
               padding: 2rem 0;
-              outline-color: ${this.props.color};
+              outline-color: ${color};
 
               @media (--large-up) {
                 flex-direction: row;

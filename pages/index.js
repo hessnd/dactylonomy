@@ -84,8 +84,9 @@ class Index extends React.Component {
   }
 
   resetFormState(activeFormName) {
+    const { regions } = this.state;
     // we want to update the formActive state for all hands except activeFormName
-    const newRegions = this.state.regions.map(obj => ({
+    const newRegions = regions.map(obj => ({
       order: obj.order,
       name: obj.name,
       color: obj.color,
@@ -98,6 +99,7 @@ class Index extends React.Component {
   }
 
   render() {
+    const { regions } = this.state;
     return (
       <Layout>
         <Banners />
@@ -105,8 +107,10 @@ class Index extends React.Component {
           <p>
             Hey guys (・_・)ノ real quick, count to 10 on your fingers! (I’ll wait.) Which finger
             did you start with? Have you ever even thought about that?
+            <br />
+            <br />
+            Well, I have.
           </p>
-          <p>Well, I have.</p>
           <p>
             I’m asking people around the world to tell me how they count on their fingers (aka
             dactylonomy). Because everyone does it differently. And until now, there’s no real
@@ -119,7 +123,7 @@ class Index extends React.Component {
           </p>
         </section>
         <section className="hands">
-          {this.state.regions.map(hand => (
+          {regions.map(hand => (
             <Hand
               key={hand.order}
               name={hand.name}

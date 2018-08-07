@@ -3,15 +3,6 @@ import PropTypes from 'prop-types';
 import firebase from 'lib/firebase';
 
 class Form extends Component {
-  static getDerivedStateFromProps(nextProps, prevState) {
-    return {
-      hand: nextProps.name !== prevState.hand ? nextProps.name : prevState.hand,
-      origin: '',
-      email: '',
-      comments: '',
-    };
-  }
-
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -28,6 +19,15 @@ class Form extends Component {
     this.submissionsRef = firebase.database().ref('submissions');
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      hand: nextProps.name !== prevState.hand ? nextProps.name : prevState.hand,
+      origin: '',
+      email: '',
+      comments: '',
+    };
+  }
+
   handleChange(e) {
     const { value, name } = e.target;
     this.setState(() => ({
@@ -41,8 +41,9 @@ class Form extends Component {
   }
 
   render() {
-    const isActive = this.props.active ? 'active' : '';
-    const { name } = this.props;
+    const { name, active, color } = this.props;
+    const { origin, email, comments } = this.state;
+    const isActive = active ? 'active' : '';
     return (
       <form className={`form ${isActive}`}>
         <label className="label" htmlFor="origin">
@@ -52,7 +53,7 @@ class Form extends Component {
             id="origin"
             type="text"
             name="origin"
-            value={this.state.origin}
+            value={origin}
             onChange={this.handleChange}
           />
         </label>
@@ -63,7 +64,7 @@ class Form extends Component {
             id="email"
             type="email"
             name="email"
-            value={this.state.email}
+            value={email}
             onChange={this.handleChange}
           />
         </label>
@@ -75,7 +76,7 @@ class Form extends Component {
               id="comments"
               type="text"
               name="comments"
-              value={this.state.comments}
+              value={comments}
               onChange={this.handleChange}
             />
           </label>
@@ -87,7 +88,7 @@ class Form extends Component {
               id="comments"
               type="text"
               name="comments"
-              value={this.state.comments}
+              value={comments}
               onChange={this.handleChange}
             />
           </label>
@@ -131,7 +132,7 @@ class Form extends Component {
               color: black;
               border: none;
               outline: 0;
-              border-bottom: solid 0.3rem ${this.props.color};
+              border-bottom: solid 0.3rem ${color};
               position: absolute;
               left: 0;
               top: 5rem;
