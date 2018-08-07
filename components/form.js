@@ -19,15 +19,6 @@ class Form extends Component {
     this.submissionsRef = firebase.database().ref('submissions');
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    return {
-      hand: nextProps.name !== prevState.hand ? nextProps.name : prevState.hand,
-      origin: '',
-      email: '',
-      comments: '',
-    };
-  }
-
   handleChange(e) {
     const { value, name } = e.target;
     this.setState(() => ({
@@ -107,6 +98,7 @@ class Form extends Component {
               opacity: 1;
               transition: all 0.5s ease-out;
               height: 100%;
+              padding: 0 1rem;
 
               &.active {
                 display: flex;
@@ -135,7 +127,7 @@ class Form extends Component {
               border-bottom: solid 0.3rem ${color};
               position: absolute;
               left: 0;
-              top: 5rem;
+              top: 7rem;
               width: 100%;
             }
 

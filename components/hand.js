@@ -33,15 +33,26 @@ class Hand extends React.Component {
           onClick={this.handleClick}
           onKeyDown={this.handleClick}
         >
-          <figure className={`hands ${isActive}`}>
+          <div className={`hands ${isActive}`}>
             <img src={colorHand} className={`color ${isActive}`} alt={name} />
             <img src={bwHand} className="black-white" alt={name} />
-          </figure>
+          </div>
         </div>
         <Form name={name} active={formActive} color={color} />
         <style jsx>
           {`
             @import './styles/variables.css';
+
+            .region-wrapper {
+              display: flex;
+              flex-direction: column;
+              flex-wrap: no-wrap;
+              padding: 2rem 0;
+
+              @media (--large-up) {
+                flex-direction: row;
+              }
+            }
 
             .hands-wrapper {
               width: 100%;
@@ -57,6 +68,10 @@ class Hand extends React.Component {
                 flex-direction: row;
                 max-width: 1098px;
               }
+            }
+
+            .hands-wrapper {
+              padding: 0 1rem;
             }
 
             .hands {
