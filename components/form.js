@@ -90,6 +90,7 @@ class Form extends Component {
             @import './styles/variables.css';
 
             .form {
+              z-index: 2;
               display: flex;
               flex-direction: column;
               opacity: 0;

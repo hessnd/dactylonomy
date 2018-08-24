@@ -47,6 +47,7 @@ class Hand extends React.Component {
             }
 
             .hands-wrapper {
+              z-index: 5;
               width: 100%;
               max-width: 680px;
               display: flex;
@@ -56,9 +57,10 @@ class Hand extends React.Component {
               padding: 2rem 1rem;
               box-sizing: border-box;
               outline-color: ${color};
-              transition: transform 0.5s ease-in;
+              background-color: white;
 
               @media (--large-up) {
+                transition: transform 0.5s ease-in;
                 flex-direction: row;
                 max-width: 1098px;
                 position: relative;

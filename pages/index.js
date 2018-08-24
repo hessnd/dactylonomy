@@ -162,6 +162,7 @@ class Index extends React.Component {
             }
 
             .hands {
+              z-index: 5;
               display: flex;
               justify-content: center;
               align-items: center;
