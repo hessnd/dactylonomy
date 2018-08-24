@@ -91,28 +91,32 @@ class Form extends Component {
 
             .form {
               display: flex;
+              flex-direction: column;
               opacity: 0;
               visibility: hidden;
-              flex-direction: column;
+              overflow: hidden;
               width: 100%;
               max-width: 549px;
               position: relative;
-              opacity: 1;
-              height: 100%;
+              height: 0;
               padding: 0 1rem;
               box-sizing: border-box;
               transition: transform 0.5s ease-in;
 
               @media (--large-up) {
+                height: 100%;
                 position: relative;
                 right: 50%;
                 transform: translateX(50%);
               }
 
               &.active {
+                height: 100%;
                 opacity: 1;
                 visibility: visible;
-                transform: translateX(100%);
+                @media (--large-up) {
+                  transform: translateX(100%);
+                }
               }
             }
 

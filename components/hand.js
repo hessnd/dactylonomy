@@ -67,7 +67,9 @@ class Hand extends React.Component {
               }
 
               &.active {
-                transform: translateX(-100%);
+                @media (--large-up) {
+                  transform: translateX(-100%);
+                }
               }
             }
 

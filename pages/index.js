@@ -21,8 +21,8 @@ class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      regions: [
-        {
+      regions: {
+        bangladesh: {
           order: 0,
           name: 'bangladesh',
           color: '#ffc74f',
@@ -30,7 +30,7 @@ class Index extends React.Component {
           bwHand: bangladeshBW,
           formActive: false,
         },
-        {
+        centralEurope: {
           order: 1,
           name: 'central europe',
           color: '#d09afc',
@@ -38,7 +38,7 @@ class Index extends React.Component {
           bwHand: centralEuropeBW,
           formActive: false,
         },
-        {
+        china: {
           order: 2,
           name: 'china',
           color: '#475aeb',
@@ -46,7 +46,7 @@ class Index extends React.Component {
           bwHand: chinaBW,
           formactive: false,
         },
-        {
+        japan: {
           order: 3,
           name: 'japan',
           color: '#6ad4fc',
@@ -54,7 +54,7 @@ class Index extends React.Component {
           bwHand: japanBW,
           formActive: false,
         },
-        {
+        northAmerica: {
           order: 4,
           name: 'north america',
           color: '#fc92e7',
@@ -62,7 +62,7 @@ class Index extends React.Component {
           bwHand: northAmericaBW,
           formActive: false,
         },
-        {
+        taiwan: {
           order: 5,
           name: 'taiwan',
           color: '#5ae079',
@@ -70,7 +70,7 @@ class Index extends React.Component {
           bwHand: taiwanBW,
           formActive: false,
         },
-        {
+        other: {
           order: 6,
           name: 'other',
           color: '#f21c1c',
@@ -78,7 +78,7 @@ class Index extends React.Component {
           bwHand: otherBW,
           formActive: false,
         },
-      ],
+      },
     };
     this.resetFormState = this.resetFormState.bind(this);
   }
@@ -86,13 +86,16 @@ class Index extends React.Component {
   resetFormState(activeFormName) {
     const { regions } = this.state;
     // we want to update the formActive state for all hands except activeFormName
-    const newRegions = regions.map(obj => ({
-      order: obj.order,
-      name: obj.name,
-      color: obj.color,
-      colorHand: obj.colorHand,
-      bwHand: obj.bwHand,
-      formActive: obj.name === activeFormName,
+    const newRegions = Object.keys(regions).map(hand => ({
+      order: regions[hand].order,
+      name: regions[hand].name,
+      color: regions[hand].color,
+      colorHand: regions[hand].colorHand,
+      bwHand: regions[hand].bwHand,
+      formActive:
+        regions[hand].name === activeFormName
+          ? !regions[hand].formActive
+          : regions[hand].formActive,
     }));
 
     this.setState({ regions: newRegions });
@@ -123,14 +126,14 @@ class Index extends React.Component {
           </p>
         </section>
         <section className="hands">
-          {regions.map(hand => (
+          {Object.keys(regions).map(hand => (
             <Hand
-              key={hand.order}
-              name={hand.name}
-              color={hand.color}
-              colorHand={hand.colorHand}
-              bwHand={hand.bwHand}
-              formActive={hand.formActive}
+              key={regions[hand].order}
+              name={regions[hand].name}
+              color={regions[hand].color}
+              colorHand={regions[hand].colorHand}
+              bwHand={regions[hand].bwHand}
+              formActive={regions[hand].formActive}
               resetFormState={this.resetFormState}
             />
           ))}
